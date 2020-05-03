@@ -8,3 +8,5 @@ if all([sum(x) == res for x in lst]) and all([sum(x) == res for x in list(zip(*l
     print('YES')
 else:
     print('NO')
+
+# OK

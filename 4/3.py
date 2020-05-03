@@ -7,3 +7,5 @@ def reducer_func(el_prev, el):
 
 
 print(reduce(reducer_func, list(sys.stdin)))
+
+# OK
