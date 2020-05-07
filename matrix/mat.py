@@ -1,9 +1,13 @@
 import random
+# from copy import deepcopy
 
 
 class Matrix:
     def __init__(self, data=None, shape=None):
-        self.data = data
+        # в таких случаях !зачастую! стоит откопировать элементы типа data и shape (shape может и списком быть,
+        # что уж там другой человек будет подавать - неизвестно). А если один человек на основе списка одного списка извне создаст
+        # две матрицы, подав туда один и тот же список, то произойдет неприятный коллапс, ибо два объекта будут ссылаться на один список
+        self.data = data # deepcopy(data)
         self.shape = shape
         if self.data is None:
             self.data = []
@@ -87,6 +91,7 @@ class Matrix:
         self.data[key_m][key_n] = value
 
     def __getitem__(self, key_m):
+        # лучше копию! Та же проблема, что и писал в начале
         return self.data[key_m]
 
     def determinant(self, matrix=None, mul=1):
